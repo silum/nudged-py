@@ -3,49 +3,50 @@ import unittest2 as unittest  # to support Python 2.6
 import nudged
 
 samples = [
-  {
-    'id': 'Simple translation',
-    'a': [(0, 0), (0, 1)],
-    'b': [(1, 1), (1, 2)],
-    's': 1, 'r': 0, 'tx': 1, 'ty': 1
-  },
-  {
-    'id': 'Simple rotation',
-    'a': [(1, 1), (-1, -1)],
-    'b': [(-1, -1), (1, 1)],
-    's': -1, 'r': 0, 'tx': 0, 'ty': 0
-  },
-  {
-    'id': 'Simple scaling',
-    'a': [(1, 1), (-1, -1)],
-    'b': [(2, 2), (-2, -2)],
-    's': 2, 'r': 0, 'tx': 0, 'ty': 0
-  },
-  {
-    'id': 'Simple rotation & scaling',
-    'a': [(1, 1), (-1, -1)],
-    'b': [(-2, -2), (2, 2)],
-    's': -2, 'r': 0, 'tx': 0, 'ty': 0
-  },
-  {
-    'id': 'Simple translation & rotation',
-    'a': [(0, 0), (2, 0), (1, 2)],
-    'b': [(1, 1), (1, 3), (-1, 2)],
-    's': 0, 'r': 1, 'tx': 1, 'ty': 1
-  },
-  {
-    'id': 'Simple translation, rotation, & scaling',
-    'a': [(1, -1), (3, -2)],
-    'b': [(3, 4), (10, 8)],
-    's': 2, 'r': 3, 'tx': -2, 'ty': 3
-  },
-  {
-    'id': 'Approximating non-uniform scaling',
-    'a': [(0, 0), (2, 0), (0, 2), (2, 2)],
-    'b': [(0, 0), (2, 0), (0, 4), (2, 4)],
-    's': 1.5, 'r': 0, 'tx': -0.5, 'ty': 0.5
-  },
-]
+    {
+        'id': 'Simple translation',
+        'a': [(0, 0), (0, 1)],
+        'b': [(1, 1), (1, 2)],
+        's': 1, 'r': 0, 'tx': 1, 'ty': 1
+        },
+    {
+        'id': 'Simple rotation',
+        'a': [(1, 1), (-1, -1)],
+        'b': [(-1, -1), (1, 1)],
+        's': -1, 'r': 0, 'tx': 0, 'ty': 0
+        },
+    {
+        'id': 'Simple scaling',
+        'a': [(1, 1), (-1, -1)],
+        'b': [(2, 2), (-2, -2)],
+        's': 2, 'r': 0, 'tx': 0, 'ty': 0
+        },
+    {
+        'id': 'Simple rotation & scaling',
+        'a': [(1, 1), (-1, -1)],
+        'b': [(-2, -2), (2, 2)],
+        's': -2, 'r': 0, 'tx': 0, 'ty': 0
+        },
+    {
+        'id': 'Simple translation & rotation',
+        'a': [(0, 0), (2, 0), (1, 2)],
+        'b': [(1, 1), (1, 3), (-1, 2)],
+        's': 0, 'r': 1, 'tx': 1, 'ty': 1
+        },
+    {
+        'id': 'Simple translation, rotation, & scaling',
+        'a': [(1, -1), (3, -2)],
+        'b': [(3, 4), (10, 8)],
+        's': 2, 'r': 3, 'tx': -2, 'ty': 3
+        },
+    {
+        'id': 'Approximating non-uniform scaling',
+        'a': [(0, 0), (2, 0), (0, 2), (2, 2)],
+        'b': [(0, 0), (2, 0), (0, 4), (2, 4)],
+        's': 1.5, 'r': 0, 'tx': -0.5, 'ty': 0.5
+        },
+    ]
+
 
 class TestEstimate(unittest.TestCase):
 
@@ -81,7 +82,7 @@ class TestEstimate(unittest.TestCase):
         '''
         should allow lists of length zero
         '''
-        t = nudged.estimate([], []);
+        t = nudged.estimate([], [])
         # Identity transform
         self.assertEqual(t.transform((0, 0)), (0, 0))
         self.assertEqual(t.transform((7, 7)), (7, 7))
@@ -96,9 +97,7 @@ class TestEstimate(unittest.TestCase):
     def test_singleton_domain(self):
         dom = (0, 0)
         ran = [(1, 1), (2, 2)]
-        f = lambda: nudged.estimate(dom, ran)
-        self.assertRaises(TypeError, f)
-
+        self.assertRaises(TypeError, lambda: nudged.estimate(dom, ran))
 
 
 class TestEstimateError(unittest.TestCase):

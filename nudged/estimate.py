@@ -2,6 +2,7 @@
 
 from .transform import Transform
 
+
 def estimate(domainpoints, rangepoints):
     '''
     Parameters
@@ -78,7 +79,6 @@ def estimate_error(transform, domainpoints, rangepoints):
     # Allow arrays of different length but
     # ignore the extra points.
     N = min(len(X), len(Y))
-
 
     se = 0.0
     for i in range(N):

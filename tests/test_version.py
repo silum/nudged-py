@@ -3,6 +3,7 @@ import nudged
 import unittest2 as unittest  # to support Python 2.6
 import pkg_resources  # part of setuptools
 
+
 class TestVersion(unittest.TestCase):
 
     def test_equal(self):
@@ -11,6 +12,7 @@ class TestVersion(unittest.TestCase):
         '''
         setuppy_version = pkg_resources.require('nudged')[0].version
         self.assertEqual(nudged.version, setuppy_version)
+
 
 if __name__ == '__main__':
     unittest.main()

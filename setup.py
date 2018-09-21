@@ -8,7 +8,7 @@ https://github.com/pypa/sampleproject
 """
 
 # Always prefer setuptools over distutils
-from setuptools import setup, find_packages
+from setuptools import setup
 # To use a consistent encoding
 from codecs import open
 from os import path
@@ -22,7 +22,8 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 setup(
     name='nudged',
     version='0.3.1',
-    description='Estimate scale, rotation, and translation between two sets of 2D points e.g. for multi-touch gestures or calibration',
+    description='Estimate scale, rotation, and translation between two ' +
+        'sets of 2D points e.g. for multi-touch gestures or calibration',
     long_description=long_description,
     url='https://github.com/axelpale/nudged-py',
     author='Akseli Palen',

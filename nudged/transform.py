@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import math
 
+
 class Transform(object):
 
     def __init__(self, s, r, tx, ty):
@@ -29,7 +30,7 @@ class Transform(object):
     def get_matrix(self):
         return [[self.s, -self.r, self.tx],
                 [self.r,  self.s, self.ty],
-                [     0,       0,       1]]
+                [0, 0, 1]]
 
     def get_rotation(self):
         return math.atan2(self.r, self.s)

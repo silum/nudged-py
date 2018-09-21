@@ -1,3 +1,3 @@
-from .estimate import estimate, estimate_error
-from .transform import Transform
-from .version import version
+from .estimate import estimate, estimate_error  # noqa
+from .transform import Transform  # noqa
+from .version import version  # noqa
