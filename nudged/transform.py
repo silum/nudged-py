@@ -14,13 +14,13 @@ class Transform(object):
         '''
         Parameter
             p
-                point [x, y] or list of points [[x1,y1], [x2,y2], ...]
+                point (x, y) or list of points [(x1,y1), (x2,y2), ...]
         '''
         def transform_one(q):
-            return [self.s * q[0] - self.r * q[1] + self.tx,
-                    self.r * q[0] + self.s * q[1] + self.ty]
+            return (self.s * q[0] - self.r * q[1] + self.tx,
+                    self.r * q[0] + self.s * q[1] + self.ty)
 
-        if not isinstance(p[0], list):
+        if not isinstance(p[0], tuple):
             # Single point
             return transform_one(p)
         # else
@@ -38,4 +38,4 @@ class Transform(object):
         return math.sqrt(self.r * self.r + self.s * self.s)
 
     def get_translation(self):
-        return [self.tx, self.ty]
+        return self.tx, self.ty

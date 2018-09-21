@@ -6,9 +6,9 @@ def estimate(domainpoints, rangepoints):
     '''
     Parameters
         domainpoints
-            list of [x, y] 2D lists
+            list of (x, y) 2D tuples
         rangepoints
-            list of [x, y] 2D lists
+            list of (x, y) 2D tuples
     '''
 
     # Alias
@@ -67,9 +67,9 @@ def estimate_error(transform, domainpoints, rangepoints):
         transform
             a nudged.Transform instance
         domainpoints
-            list of [x, y] 2D lists
+            list of (x, y) 2D tuples
         rangepoints
-            list of [x, y] 2D lists
+            list of (x, y) 2D tuples
     '''
 
     X = transform.transform(domainpoints)

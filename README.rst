@@ -29,8 +29,8 @@ Usage
 
 You have lists of points for the **domain** and **range** of the tranformation function to be estimated::
 
-    dom = [[0,0], [2,0], [ 1,2]]
-    ran  = [[1,1], [1,3], [-1,2]]
+    dom = [(0, 0), (2, 0), (1, 2)]
+    ran  = [(1, 1), (1, 3), (-1, 2)]
 
 Compute optimal tranformation based on the points::
 
@@ -38,8 +38,8 @@ Compute optimal tranformation based on the points::
 
 Apply the transformation to other points::
 
-    trans.transform([2,2])
-    # [-1,3]
+    trans.transform((2, 2))
+    # (-1, 3)
 
 To explore the estimated transformation, you can::
 
@@ -55,7 +55,7 @@ To explore the estimated transformation, you can::
     # 1.0
 
     trans.get_translation()
-    # [1, 1]
+    # (1, 1)
 
 
 
@@ -91,8 +91,8 @@ Compute mean squared distance between the point pairs of the domain after the gi
 
 **Usage example**::
 
-    dom = [[0, 0], [1, 1], [2, 2]]
-    ran = [[0,-1], [1, 2], [2,-1]]
+    dom = [(0, 0), (1, 1), (2, 2)]
+    ran = [(0, -1), (1, 2), (2, -1)]
     t = nudged.estimate(dom, ran)
     mse = nudged.estimate_error(t, dom, ran)
     # mse == 2.0
@@ -121,9 +121,9 @@ nudged.Transform#transform(points)
 
 **Return** an list of transformed points or single point if only a point was given. For example::
 
-    trans.transform([1,1])           # [2,2]
-    trans.transform([[1,1]])         # [[2,2]]
-    trans.transform([[1,1], [2,3]])  # [[2,2], [3,4]]
+    trans.transform((1, 1))            # (2, 2)
+    trans.transform([(1, 1)])          # [(2, 2)]
+    trans.transform([(1, 1), (2, 3)])  # [(2, 2), (3, 4)]
 
 nudged.Transform#get_matrix()
 .............................
@@ -147,7 +147,7 @@ nudged.Transform#get_scale()
 nudged.Transform#get_translation()
 ..................................
 
-**Return** ``[tx, ty]`` where ``tx`` and ``ty`` denotes movement along x-axis and y-axis accordingly.
+**Return** ``(tx, ty)`` where ``tx`` and ``ty`` denotes movement along x-axis and y-axis accordingly.
 
 
 
